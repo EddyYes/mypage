@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom'
 
 const Sidebar = () => {
   return (
-    <nav className="w-full min-w-0 bg-gray-500 p-4 text-white opacity-95 transition-all duration-300 sm:w-[237px]">
+    <nav className="w-full min-w-0 bg-gray-500 p-4 text-white opacity-95 transition-all duration-300 sm:w-[237px] dark:bg-gray-700 dark:text-gray-200">
       <h3>Courses I have completed</h3>
       <ul>
         <li>

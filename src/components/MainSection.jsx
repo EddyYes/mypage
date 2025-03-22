@@ -3,7 +3,7 @@ import mainSectionData from './data/mainSectionData'
 
 const MainSection = () => {
   return (
-    <>
+    <div className="rounded-md bg-gray-400 p-4 text-black dark:bg-gray-800 dark:text-gray-200">
       <div className="space-y-4">
         {mainSectionData.map((section, index) => (
           <Section
@@ -13,7 +13,7 @@ const MainSection = () => {
           />
         ))}
       </div>
-    </>
+    </div>
   )
 }
 

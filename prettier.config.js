@@ -7,6 +7,6 @@ export default {
   plugins: [
     'prettier-plugin-tailwindcss', // ДОЛЖЕН быть последним
   ],
-  tailwindConfig: './styles/tailwind.config.js',
+  tailwindConfig: './tailwind.config.js',
   tailwindFunctions: ['clsx'],
 }

@@ -1,4 +1,3 @@
-import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Header from './components/Header'
 import Sidebar from './components/Sidebar'
@@ -17,7 +16,7 @@ function App() {
       <Header />
       <div className="flex flex-grow">
         <Sidebar />
-        <main className="w-[780px] flex-grow bg-gray-400 p-4">
+        <main className="w-[780px] flex-grow bg-gray-200 p-4 dark:bg-gray-500">
           <Routes>
             <Route path="/" element={<MainSection />} />
             <Route path="/javaScriptCourse" element={<JavaScriptCourse />} />
