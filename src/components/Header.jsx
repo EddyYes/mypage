@@ -3,6 +3,7 @@ import { AiFillMoon, AiFillSun } from 'react-icons/ai'
 import myPhoto from '../assets/myPhoto.jpg'
 import Contacts from './Contacts.Jsx'
 import MusicPlayer from './MusicPlayer'
+import LanguageSwitcher from './LanguageSwitcher'
 
 const Header = () => {
   const { theme, toggleTheme } = useTheme()
@@ -28,6 +29,7 @@ const Header = () => {
           />
         )}
       </div>
+      <LanguageSwitcher />
     </header>
   )
 }

@@ -5,19 +5,19 @@ import MyIntent from './contentMainData/MyIntent'
 
 const mainSectionData = [
   {
-    title: 'Освіта та досвід роботи (не розробником)',
+    title: 'mainSection.titles.educWork',
     component: EducWorkMain,
   },
   {
-    title: 'Hard skills (у будівництві)',
+    title: 'mainSection.titles.hardSkills',
     component: HardSkills,
   },
   {
-    title: 'SoftSkills',
+    title: 'mainSection.titles.softSkills',
     component: SoftSkills,
   },
   {
-    title: 'Мій задум',
+    title: 'mainSection.titles.myIntent',
     component: MyIntent,
   },
 ]

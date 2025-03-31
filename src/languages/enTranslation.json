@@ -1,0 +1,92 @@
+{
+  "mainSection": {
+    "titles": {
+      "educWork": "Education and work experience (not as a developer)",
+      "hardSkills": "Hard skills (in construction)",
+      "softSkills": "SoftSkills",
+      "myIntent": "My Intent"
+    },
+    "content": {
+      "educWork": {
+        "birthDate": "August 16, 1970",
+        "education": "Higher education, LHMTCS, 1987-1991",
+        "courses": "Completed project management courses at the National Academy of Public Administration under the President of Ukraine in 2007",
+        "recentActivityTitle": "Recent activities",
+        "recentActivities": [
+          "Kyiv, construction company - department manager: 2006-2008",
+          "Dnipro, private construction activity: 2008-2021",
+          "Dnipro, construction company - site supervisor: 2021-2022 (war)"
+        ],
+        "responsibilities": "Construction of roofs and facades - promotion of services; negotiations, communication with customers; preparation of proposals, documentation (estimates); project management: team, calculations (costs), constant quality control; provision of materials, equipment, tools; recruitment and training of personnel; construction works"
+      },
+      "hardSkills": {
+        "technicalSkillsTitle": "Technical skills",
+        "technicalSkills": [
+          "Knowledge of roofing and facade technologies, materials",
+          "Reading drawings and schematics",
+          "Preparation of proposals, estimates, and reports",
+          "Implementation of technical solutions to improve work quality",
+          "Quality control of performed work",
+          "Practical personal experience in performing all types of construction work"
+        ],
+        "managementSkillsTitle": "Management skills",
+        "managementSkills": [
+          "Management of construction projects",
+          "Negotiations, solving financial and technical issues with the client",
+          "Coordination with designers, subcontractors, material suppliers",
+          "Planning, task distribution, managing workflow and staff"
+        ]
+      },
+      "softSkills": {
+        "skills": [
+          {
+            "title": "Creative thinking and idea generation",
+            "description": "Ability to find unconventional solutions and generate new ideas."
+          },
+          {
+            "title": "Insightfulness and intuition",
+            "description": "Ability to foresee developments and analyze hidden opportunities in situations."
+          },
+          {
+            "title": "Emotional intelligence and diplomacy",
+            "description": "Skills in managing emotions, building trusting relationships, and effectively interacting with colleagues."
+          },
+          {
+            "title": "Stress resistance and adaptability",
+            "description": "Ability to remain calm in stressful situations and adapt quickly to changes."
+          },
+          {
+            "title": "Communication and tact",
+            "description": "Ability to communicate effectively, find common ground, and work as part of a team."
+          },
+          {
+            "title": "Result-oriented focus",
+            "description": "Capability to concentrate on achieving set goals and delivering results."
+          },
+          {
+            "title": "Strategic thinking and planning",
+            "description": "Skills in planning long-term goals and developing strategies to achieve them."
+          },
+          {
+            "title": "Team management and leadership",
+            "description": "Ability to lead, motivate a team, and effectively delegate tasks."
+          },
+          {
+            "title": "Quick response and problem-solving",
+            "description": "Ability to quickly react to arising opportunities and solve emerging problems."
+          },
+          {
+            "title": "Politeness and unobtrusiveness",
+            "description": "Ability to unobtrusively manage emotions and behavior, finding an approach to any individual."
+          }
+        ]
+      },
+      "myIntent": {
+        "goals": [
+          "My goal is to save your time and make the choice easier, allowing you to quickly assess my competencies and determine if I am suitable for you.",
+          "I have completed these courses, gained knowledge and initial experience, which I want to convey to you in order to get a job."
+        ]
+      }
+    }
+  }
+}

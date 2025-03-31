@@ -1,15 +1,13 @@
+import { useTranslation } from 'react-i18next'
+
 const MyIntent = () => {
+  const { t } = useTranslation()
+
   return (
     <ul>
       <ul className="mb-2 list-inside list-disc">
-        <li>
-          Моя мета — заощадити ваш час і зробити вибір простішим, дозволяючи вам
-          швидко оцінити мої компетенції та визначити, чи підходжу я вам.
-        </li>
-        <li>
-          Я пройшов ці курси, здобув знання та початковий досвід, які хочу
-          донести до вас, щоб отримати роботу.
-        </li>
+        <li>{t('mainSection.content.myIntent.goals.0')}</li>
+        <li>{t('mainSection.content.myIntent.goals.1')}</li>
       </ul>
     </ul>
   )

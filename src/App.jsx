@@ -1,4 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import i18n from './i18n' // Импорт экземпляра i18n
 import Header from './components/Header'
 import Sidebar from './components/Sidebar'
 import MainSection from './components/MainSection'
@@ -11,12 +13,16 @@ import CssCourse from './components/courses/CssCourse'
 import MongodbCourse from './components/courses/MongodbCourse'
 
 function App() {
+  const { i18n: i18nInstance } = useTranslation()
   return (
     <div className="flex h-screen flex-col">
       <Header />
       <div className="flex flex-grow">
         <Sidebar />
-        <main className="w-[780px] flex-grow bg-gray-200 p-4 dark:bg-gray-500">
+        <main
+          key={i18nInstance.language}
+          className="w-[780px] flex-grow bg-gray-200 p-4 dark:bg-gray-500"
+        >
           <Routes>
             <Route path="/" element={<MainSection />} />
             <Route path="/javaScriptCourse" element={<JavaScriptCourse />} />

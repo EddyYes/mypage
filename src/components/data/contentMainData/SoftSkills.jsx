@@ -1,98 +1,78 @@
+import { useTranslation } from 'react-i18next'
+
 const SoftSkills = () => {
+  const { t } = useTranslation()
   return (
     <>
       <h2 className="mb text-xl font-semibold">
-        Креативное мышление и генерация идей
+        {t('mainSection.content.softSkills.skills.0.title')}
       </h2>
       <ul className="mb-2 list-inside list-disc">
-        <li>
-          Способность находить нестандартные решения и генерировать новые идеи.
-        </li>
-      </ul>
-
-      <h2 className="mb text-xl font-semibold">Проницательность и интуиция</h2>
-      <ul className="mb-2 list-inside list-disc">
-        <li>
-          Способность предвидеть развитие событий, анализировать скрытые
-          возможности ситуации.
-        </li>
+        <li>{t('mainSection.content.softSkills.skills.0.description')}</li>
       </ul>
 
       <h2 className="mb text-xl font-semibold">
-        Эмоциональный интеллект и дипломатичность
+        {t(' ')}
+        {t('mainSection.content.softSkills.skills.1.title')}
       </h2>
       <ul className="mb-2 list-inside list-disc">
-        <li>
-          Навыки управления эмоциями, установления доверительных отношений и
-          эффективного взаимодействия с коллегами.
-        </li>
+        <li>{t('mainSection.content.softSkills.skills.1.description')}</li>
       </ul>
 
       <h2 className="mb text-xl font-semibold">
-        Стрессоустойчивость и адаптивность
+        {t('mainSection.content.softSkills.skills.2.title')}
       </h2>
       <ul className="mb-2 list-inside list-disc">
-        <li>
-          Умение сохранять спокойствие в стрессовых ситуациях и быстро
-          адаптироваться к изменениям.
-        </li>
+        <li>{t('mainSection.content.softSkills.skills.2.description')}</li>
       </ul>
 
       <h2 className="mb text-xl font-semibold">
-        Коммуникабельность и тактичность
+        {t('mainSection.content.softSkills.skills.3.title')}
       </h2>
       <ul className="mb-2 list-inside list-disc">
-        <li>
-          Умение эффективно общаться, находить общий язык и работать в команде.
-        </li>
-      </ul>
-
-      <h2 className="mb text-xl font-semibold">Ориентация на результат</h2>
-      <ul className="mb-2 list-inside list-disc">
-        <li>
-          Способность фокусироваться на достижении поставленных целей и
-          результатах.
-        </li>
+        <li>{t('mainSection.content.softSkills.skills.3.description')}</li>
       </ul>
 
       <h2 className="mb text-xl font-semibold">
-        Стратегическое мышление и планирование
+        {t('mainSection.content.softSkills.skills.4.title')}
       </h2>
       <ul className="mb-2 list-inside list-disc">
-        <li>
-          Умение планировать долгосрочные цели и разрабатывать стратегию их
-          достижения.
-        </li>
+        <li>{t('mainSection.content.softSkills.skills.4.description')}</li>
       </ul>
 
       <h2 className="mb text-xl font-semibold">
-        Управление командой и лидерство
+        {t('mainSection.content.softSkills.skills.5.title')}
       </h2>
       <ul className="mb-2 list-inside list-disc">
-        <li>
-          Способность быть лидером, мотивировать команду и эффективно
-          делегировать задачи.
-        </li>
+        <li>{t('mainSection.content.softSkills.skills.5.description')}</li>
       </ul>
 
       <h2 className="mb text-xl font-semibold">
-        Оперативная реакция и решение проблем
+        {t('mainSection.content.softSkills.skills.6.title')}
       </h2>
       <ul className="mb-2 list-inside list-disc">
-        <li>
-          Умение быстро реагировать на открывающиеся возможности и решать
-          возникающие проблемы.
-        </li>
+        <li>{t('mainSection.content.softSkills.skills.6.description')}</li>
       </ul>
 
       <h2 className="mb text-xl font-semibold">
-        Обходительность и ненавязчивость
+        {t('mainSection.content.softSkills.skills.7.title')}
       </h2>
       <ul className="mb-2 list-inside list-disc">
-        <li>
-          Способность ненавязчиво управлять эмоциями и поведением людей,
-          находить подход к любому человеку.
-        </li>
+        <li>{t('mainSection.content.softSkills.skills.7.description')}</li>
+      </ul>
+
+      <h2 className="mb text-xl font-semibold">
+        {t('mainSection.content.softSkills.skills.8.title')}
+      </h2>
+      <ul className="mb-2 list-inside list-disc">
+        <li>{t('mainSection.content.softSkills.skills.8.description')}</li>
+      </ul>
+
+      <h2 className="mb text-xl font-semibold">
+        {t('mainSection.content.softSkills.skills.9.title')}
+      </h2>
+      <ul className="mb-2 list-inside list-disc">
+        <li>{t('mainSection.content.softSkills.skills.9.description')}</li>
       </ul>
     </>
   )
