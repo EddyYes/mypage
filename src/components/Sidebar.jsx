@@ -98,7 +98,7 @@ const Sidebar = () => {
                 : 'block py-2 text-[22px] text-[#ADD8E6] underline hover:text-[#7FB3D5]'
             }
           >
-            Go Home
+            Go to Home
           </NavLink>
         </li>
       </ul>

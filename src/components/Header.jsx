@@ -20,12 +20,12 @@ const Header = () => {
         {theme === 'light' ? (
           <AiFillSun
             onClick={toggleTheme}
-            className="cursor-pointer text-4xl text-yellow-400 transition-all duration-300 hover:scale-110 hover:text-yellow-500"
+            className="mt-[-22px] cursor-pointer text-4xl text-yellow-400 transition-all duration-300 hover:scale-110 hover:text-yellow-500"
           />
         ) : (
           <AiFillMoon
             onClick={toggleTheme}
-            className="cursor-pointer text-4xl text-blue-400 transition-all duration-300 hover:scale-110 hover:text-blue-500"
+            className="mt-[-22px] cursor-pointer text-4xl text-blue-400 transition-all duration-300 hover:scale-110 hover:text-blue-500"
           />
         )}
       </div>

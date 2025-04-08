@@ -10,8 +10,9 @@ const MainSection = () => {
         {mainSectionData.map((section, index) => (
           <Section
             key={index}
-            title={t(section.title)} //перевод заголовка
+            title={t(section.title)}
             component={section.component}
+            sectionKey={section.title} // Уникальный ключ для каждой секции
           />
         ))}
       </div>
@@ -20,3 +21,12 @@ const MainSection = () => {
 }
 
 export default MainSection
+/**
+ * i18n.js – содержит настройки i18n и ссылки на ресурсы (переводы).
+useTranslation – подключается к i18n и позволяет через t получать строки перевода.
+В MainSection.jsx:
+t(section.title) переводит заголовки секций,
+component={section.component} передаёт нужный компонент для отображения
+section-локальная переменная внутри .map()
+sectionKey={section.title} // Уникальный ключ каждой секции использ title
+ */
