@@ -10,7 +10,7 @@ const LanguageSwitcher = () => {
       i18n.changeLanguage(savedLanguage)
     }
   }, [i18n])
-
+  //Или установлен исходя из заданной конфигурации в i18n или сохраненный в  localStorage(после сравнения с предустановленным - если они не совпадают)
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng)
     localStorage.setItem('selectedLanguage', lng)
@@ -38,7 +38,11 @@ const LanguageSwitcher = () => {
           RU
         </button>
       </div>
-      <div className="mt-1 text-sm text-gray-500">Перевод для Home</div>
+      <div className="mt-1 text-sm text-gray-500">
+        Перевод для Home
+        <hr />
+        Translation for Home
+      </div>
     </div>
   )
 }

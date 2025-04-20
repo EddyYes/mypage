@@ -16,8 +16,7 @@ const sectionReducer = (state, action) => {
 }
 
 const Section = ({ title, component: Component, sectionKey }) => {
-  // Инициализация состояния из localStorage
-  const savedState = JSON.parse(localStorage.getItem('sectionsState')) || {}
+  const savedState = JSON.parse(localStorage.getItem('sectionsState')) || {} //получим либо данные либо пустой объект
   const initialState = {
     ...savedState,
     [sectionKey]:
@@ -49,9 +48,10 @@ const Section = ({ title, component: Component, sectionKey }) => {
 
 export default Section
 /**
- * sectionReducer — управлять состоянием секций (открыта/закрыта) в приложении.
+ * sectionReducer — управлятет состоянием секций (открыта/закрыта) в приложении.
 Обрабатывает экшен 'TOGGLE', переключает состояние секции и сохраняет его в localStorage для сохранения настроек при перезагрузке.
-...state - содержит все текущие секции и их состояния.
+ *...state - содержит все текущие секции и их состояния.
+ *title, component, sectionKey - эти переменные используются для отображения/сокрытия секций на основании значений true/false
  * Связь между action и sectionKey устанавливается в функции toggleSection
  через  .dispatch({ type: 'TOGGLE', sectionKey }), который передает объект действия type: 'TOGGLE' с  и sectionKey в редюсер, который использует  для изменения состояния соответствующей секции.
 */
