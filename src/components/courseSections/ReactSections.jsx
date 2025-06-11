@@ -12,7 +12,7 @@ const ReactSections = () => {
             href="https://docs.google.com/document/d/1N9eLQ9uA07g-iPwnZfLPUdYEHbg7rTX8M2kFfBfezPo/edit?usp=sharing"
             target="_blank"
             rel="noopener noreferrer" //для защиты от атак при взаимодействии с новой вкладкой.
-            class="text-gray-900 hover:text-blue-700"
+            class="font-bold text-blue-900 hover:text-blue-700"
           >
             переглянути зміст / view contents / просмотреть содержание
           </a>
@@ -585,7 +585,10 @@ function reducer(state = initialState, action) {
         </ul>
         <hr />
         <h3 className="mb-1 text-xl font-bold">Применение в приложении</h3>
-        <p>Библиотека <strong>Redux</strong> в этом приложении не используется. Применяется хук  <code>useReducer</code>.</p>
+        <p>
+          Библиотека <strong>Redux</strong> в этом приложении не используется.
+          Применяется хук <code>useReducer</code>.
+        </p>
         <p>
           Ссылка <code>Go to Home</code> ведёт к компоненту{' '}
           <code>{'<MainSection/>'}</code>, где реализован перевод текста (в
@@ -881,6 +884,426 @@ function reducer(state = initialState, action) {
           перерисовки компонента <code>Header</code>, который использует{' '}
           <code>useTheme</code> для управления темой.
         </p>
+      </SectionCourse>
+      <SectionCourse title="Redux в Book Library / Redux in the Book Library app ">
+        <p className="mb-3">
+          Приложение <strong>Book Library App</strong> развёрнуто: фронтенд — на
+          Vercel, бэкенд — на Render. При первом API-запросе к бекенду
+          произойдет задержка в 20-30сек., так как на бесплатном тарифе Render
+          сервер "засыпает" (spins down) после периода неактивности. Последующие
+          запросы обычно выполнятся быстрее, исходя из настроек(2сек.).
+        </p>
+        <p className="mb-3 text-xl font-bold">
+          <a
+            href="https://book-library-app-rouge.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer" //для защиты от атак при взаимодействии с новой вкладкой.
+            class="text-blue-800 hover:text-blue-600"
+          >
+            Додаток Book Library / Book Library App / Приложение Book Library
+          </a>
+        </p>
+
+        <h3 className="mb-1 text-xl font-bold">Описание приложения</h3>
+        <p className="mb-1 text-xl">Приложение позволяет:</p>
+        <ul className="mb-1 list-inside list-disc">
+          <li>Добавлять книги: вручную, случайным образом или через API;</li>
+          <li>Удалять книги и помечать их как избранные;</li>
+          <li>
+            Фильтровать список книг по названию, автору и признаку "избранное";
+          </li>
+          <li>
+            Отображать ошибки (незаполненные поля, ошибка сети) и статус
+            загрузки при работе с API.
+          </li>
+        </ul>
+        <p className="mb-2">
+          Все состояния (книги, фильтры, ошибки, статус загрузки) реализованы с
+          использованием <strong>Redux</strong>.
+        </p>
+        <h3 className="mb-1 text-xl font-bold">
+          Краткое описание использование Redux в приложении
+        </h3>
+        <p>
+          В приложении Book Library хранилище <code>store</code> включает три
+          среза состояний:
+        </p>
+        <ul class="list-disc pl-5">
+          <li>
+            <code>books</code> - здесь хранятся данные о книгах: список, статус
+            загрузки,
+          </li>
+          <li>
+            <code>filter</code> - здесь хранятся данные о текущих фильтрах(по
+            названию, автору, избранным),
+          </li>
+          <li>
+            <code>error</code> - здесь хранятся сообщения об ошибках.
+          </li>
+        </ul>
+        <p>
+          <code>reducer</code> - чистая функция, которая изменяет
+          соответствующую часть состояния.
+        </p>
+        <p>
+          <strong>BookForm, BookList, Error, Filter</strong> - компоненты,
+          которые передают <code>actions</code>(действия) редюсерам с помощью{' '}
+          <code>useDispatch</code>.
+        </p>
+        <p>
+          Редюсеры создают новые состояния на основе полученных{' '}
+          <code>actions</code> в <code>store</code>(в соответствующем слайсе).
+        </p>
+        <p>
+          Эти же компоненты получают новые данные соответствующего состояния с
+          помощью <code>useSelector</code>, запрашивая их у <code>store</code>.
+        </p>
+        <p>
+          API-запросы реализуются с помощью <code>createAsyncThunk</code> и
+          обрабатываются в <code>extraReducers</code>. В приложении
+          thunk-функция делает запрос и сама вызывает <code>dispatch</code>,
+          чтобы сохранить данные или показать ошибку.
+        </p>
+        <p className="mb-2">
+          Компоненты взаимодействуют с состоянием через селекторы и действия, не
+          зная внутренней структуры хранилища.
+        </p>
+        <h3 class="text-xl font-bold">
+          Структура срезов (slices) в Redux Toolkit
+        </h3>
+        <p>
+          Каждый <code>slice</code> (например, <code>booksSlice</code>) обычно
+          организован по следующей схеме:
+        </p>
+        <ol className="mb-2 list-decimal pl-5">
+          <li>
+            <strong>Импорты</strong>
+            <p>
+              <code>createSlice</code>, <code>createAsyncThunk</code> из{' '}
+              <code>@reduxjs/toolkit</code>, а также утилиты, API-функции,
+              константы и т.п.
+            </p>
+          </li>
+          <li>
+            <strong>
+              Начальное состояние (<code>initialState</code>)
+            </strong>
+            <p>Указываем объект с начальными значениями состояния</p>
+          </li>
+          <li>
+            <strong>
+              Синхронные редьюсеры (<code>reducers</code>)
+            </strong>
+            <p>
+              Обрабатывают простые действия(<code>addBook</code>,{' '}
+              <code>deleteBook</code>…)
+            </p>
+          </li>
+          <li>
+            <strong>
+              Асинхронные редьюсеры (<code>extraReducers</code>)
+            </strong>
+            <p>
+              Обрабатывают <code>createAsyncThunk</code> (например, API-запросы)
+            </p>
+          </li>
+          <li>
+            <strong>
+              Экспорт <code>reducer</code> по умолчанию
+            </strong>
+            <p>
+              Для подключения в <code>store</code>
+            </p>
+          </li>
+          <li>
+            <strong>
+              Экспорт <code>actions</code>-функций
+            </strong>
+            <p>
+              Извлекаем из <code>slice.actions</code> нужные действия для
+              использования в компонентах
+            </p>
+            <p>
+              <strong>
+                Определили → экспортировали → импортировали → отправили
+              </strong>
+            </p>
+          </li>
+          <li>
+            <strong>
+              Экспорт <code>selectors</code>
+            </strong>
+            <p>
+              Функции для доступа к нужным частям состояния, которые компоненты
+              используют через <code>useSelector</code> для подписки на
+              изменения
+            </p>
+          </li>
+        </ol>
+        <h3 class="text-xl font-bold">
+          Обзор структуры Redux в Book Library App
+        </h3>
+        <h3 class="text-xl font-semibold">BookForm</h3>
+        <p>
+          <strong>
+            Отправляет <code>actions</code>:
+          </strong>
+        </p>
+        <ul class="list-disc pl-5">
+          <li>
+            <code>addBook</code> → <code>booksSlice</code>
+          </li>
+          <li>
+            <code>fetchBook</code> → <code>booksSlice</code> (
+            <code>extraReducers</code>, <code>thunk</code>)
+          </li>
+          <li>
+            <code>setError</code> → <code>errorSlice</code>
+          </li>
+        </ul>
+        <p>
+          <strong>Подписан на состояния:</strong>
+        </p>
+        <ul class="list-disc pl-5">
+          <li>
+            <code>selectIsLoadingViaAPI</code> → <code>booksSlice</code>{' '}
+            (Loading Book… и вращающийся spiner)
+          </li>
+        </ul>
+        <h3 class="text-xl font-semibold">BookList</h3>
+        <p>
+          <strong>
+            Отправляет <code>actions</code>:
+          </strong>
+        </p>
+        <ul class="list-disc pl-5">
+          <li>
+            <code>deleteBook</code> → <code>booksSlice</code>
+          </li>
+          <li>
+            <code>toggleFavorite</code> → <code>booksSlice</code>
+          </li>
+        </ul>
+        <p>
+          <strong>Подписан на состояния:</strong>
+        </p>
+        <ul class="list-disc pl-5">
+          <li>
+            <code>selectTitleFilter</code> → <code>filterSlice</code>
+          </li>
+          <li>
+            <code>selectAuthorFilter</code> → <code>filterSlice</code>
+          </li>
+          <li>
+            <code>selectOnlyFavoriteFilter</code> → <code>filterSlice</code>{' '}
+            (фильтрация избранных)
+          </li>
+        </ul>
+        <h3 class="text-xl font-semibold">Filter</h3>
+        <p>
+          <strong>
+            Отправляет <code>actions</code>:
+          </strong>
+        </p>
+        <ul class="list-disc pl-5">
+          <li>
+            <code>setTitleFilter</code> → <code>filterSlice</code>
+          </li>
+          <li>
+            <code>setAuthorFilter</code> → <code>filterSlice</code>
+          </li>
+          <li>
+            <code>setOnlyFavoriteFilter</code> → <code>filterSlice</code>
+          </li>
+          <li>
+            <code>resetFilters</code> → <code>filterSlice</code>
+          </li>
+        </ul>
+        <p>
+          <strong>Подписан на состояния:</strong>
+        </p>
+        <ul class="list-disc pl-5">
+          <li>
+            <code>selectTitleFilter</code> → <code>filterSlice</code>
+          </li>
+          <li>
+            <code>selectAuthorFilter</code> → <code>filterSlice</code>
+          </li>
+          <li>
+            <code>selectOnlyFavoriteFilter</code> → <code>filterSlice</code>
+          </li>
+        </ul>
+        <h3 class="text-xl font-semibold">Error</h3>
+        <p>
+          <strong>
+            Отправляет <code>actions</code>:
+          </strong>
+        </p>
+        <ul class="list-disc pl-5">
+          <li>
+            <code>clearError</code> → <code>errorSlice</code>
+          </li>
+        </ul>
+        <p>
+          <strong>Подписан на состояния:</strong>
+        </p>
+        <ul class="mb-2 list-disc pl-5">
+          <li>
+            <code>selectErrorMessage</code> → <code>errorSlice</code>{' '}
+            (отображает <code>react-toastify</code> уведомления)
+          </li>
+        </ul>
+        <hr />
+        <p>
+          <strong>React-Redux</strong> — это библиотека, интегрирующая{' '}
+          <code>Redux</code> в <code>React</code> для работы с глобальным
+          состоянием через <code>store</code> и хуки - <code>useSelector</code>{' '}
+          и <code>useDispatch</code>.
+        </p>
+        <p>
+          Используем npm-пакеты <code>@reduxjs/toolkit</code> и{' '}
+          <code>react-redux</code> для управления состоянием.
+        </p>
+        <p className="mb-2">
+          Созданное хранилище <code>store</code> подключаем к корневому файлу{' '}
+          <code>main.jsx</code>, обернув компонент <code>{'<App/>'}</code> в
+          провайдер <code>{'<Provider store={store}>'}.</code>
+        </p>
+
+        <p className="mb-1">
+          <strong>Redux Toolkit</strong> включает в себя:
+        </p>
+        <ul className="mb-2 list-inside list-disc">
+          <li>
+            <code>createSlice</code> — создает слайсы; слайсы — это части
+            глобального состояния, где редьюсеры управляют их изменениями.
+            Слайсы могут состоять из нескольких значений, объединенных по
+            смыслу;
+          </li>
+          <li>
+            <code>createAsyncThunk</code> — создает thunk-функции для
+            асинхронных операций на уровне <code>store</code>;
+          </li>
+          <li>
+            библиотека Immer встроена в <code>createSlice</code> и упрощает
+            работу с иммутабельным состоянием;
+          </li>
+        </ul>
+        <p className="mb-2">
+          <span className="text-l font-semibold">Иммутабельное состояние</span>{' '}
+          — это когда данные нельзя менять напрямую (например, присвоить
+          свойству объекта новое значение). Вместо этого создается новая копия
+          данных с нужными изменениями, т.к. объекты — ссылочный тип и изменение
+          свойства меняет оригинал.
+        </p>
+        <hr />
+
+        <h3 className="mb-2 text-xl font-semibold">
+          Применение библиотеки <strong>Immer</strong> в{' '}
+          <strong>React-Redux</strong>
+        </h3>
+        <p className="mb-2 text-xl font-semibold">Исходное состояние</p>
+        <p className="mb-2 text-2xl font-bold">↓</p>
+        <p className="mb-2">
+          ( <pan className="text-l font-bold">Immer:</pan> создаётся копия
+          состояния )
+        </p>
+        <p className="mb-2">( → вносятся изменения в копию )</p>
+        <p className="mb-2">( → создаётся новое состояние )</p>
+        <p className="mb-2 text-2xl font-bold">↓</p>
+        <p className="mb-2 text-xl font-semibold">Новое состояние</p>
+        <p className="text-l mb-2 font-semibold">
+          В скобках — скрытая внутренняя работа библиотеки Immer
+        </p>
+        <p className="mb-2">
+          * т.е. при применении библиотеки{' '}
+          <span className="text-l font-semibold">Immer</span> функция-reducer не
+          использует <code>return</code> и spread-оператор (с точки зрения
+          синтаксиса), что делает код короче и читабельнее.
+        </p>
+        <hr />
+        <h3 className="mb-2 text-xl font-semibold">
+          Применение <strong>thunk-функций</strong>
+        </h3>
+        <p className="mb-2">
+          В <code>Redux store</code> можно выполнять асинхронные операции через
+          thunk'и, не помещая их в компоненты.
+        </p>
+        <p className="text-l mb-1 font-semibold">
+          Почему предпочтительнее в <code>store</code>:
+        </p>
+        <ul className="mb-2 list-inside list-disc">
+          <li>компоненты чище — только показывают данные;</li>
+          <li>
+            вся логика в одном месте — проще управлять загрузкой, ошибками и
+            результатом.
+          </li>
+        </ul>
+        <p className="mb-1">
+          <strong>
+            <code>redux-thunk</code>
+          </strong>{' '}
+          — это middleware (уже встроена в <code>Redux Toolkit</code>), которая
+          позволяет работать с thunk-функциями и управляет асинхронными
+          состояниями (<code>pending</code>, <code>fulfilled</code>,{' '}
+          <code>rejected</code>).
+        </p>
+
+        <p className="mb-1">
+          <strong>
+            <code>redux-thunk</code>
+          </strong>{' '}
+          — проверяет тип действия и, если это функция, вызывает её с
+          аргументами:
+        </p>
+        <ul className="mb-1 list-inside list-disc">
+          <li>
+            <strong>dispatch</strong> — для отправки других действий;
+          </li>
+          <li>
+            <strong>getState</strong> — для получения текущего состояния.
+          </li>
+        </ul>
+        <p className="mb-2 italic">
+          * <strong>thunk</strong>-функция принимает эти аргументы автоматически
+          (благодаря{' '}
+          <strong>
+            <code>redux-thunk</code>
+          </strong>{' '}
+          middleware), а не «указываются» в явном виде.
+        </p>
+        <p className="mb-2">
+          <strong>thunk</strong>-функция запускает асинхронные операции
+          (например, <code>fetch</code>, <code>axios</code>)
+        </p>
+        <p className="text-l mb-1 font-semibold">Может отправлять действия:</p>
+        <ul className="mb-2 list-inside list-disc">
+          <li>До загрузки (например, сброс старых данных);</li>
+          <li>Во время (например, показать спиннер);</li>
+          <li>После (например, сохранить результат или обработать ошибку).</li>
+        </ul>
+        <p className="text-l mb-1 font-semibold">
+          Благодаря пакету <code>Redux Toolkit</code>:
+        </p>
+        <ul className="mb-2 list-inside list-disc">
+          <li>
+            <code>createAsyncThunk</code> автоматически создает три состояния:{' '}
+            <code>pending</code>, <code>fulfilled</code> и <code>rejected</code>
+            .
+          </li>
+          <li>
+            Эти состояния обрабатываются через <code>extraReducers</code> в{' '}
+            <code>createSlice</code> (а не в <code>reducers</code>).
+          </li>
+        </ul>
+        <p className="text-l mb-1 font-semibold">
+          Внутри <code>extraReducers</code> можно также вручную добавлять
+          дополнительные действия, например:
+        </p>
+        <ul className="mb-2 list-inside list-disc">
+          <li>обработку ошибок;</li>
+          <li>выполнение побочной логики перед изменением состояния.</li>
+        </ul>
       </SectionCourse>
     </div>
   )
