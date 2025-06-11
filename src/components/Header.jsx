@@ -1,7 +1,7 @@
 import { useTheme } from './ThemeContext'
 import { AiFillMoon, AiFillSun } from 'react-icons/ai'
 import myPhoto from '../assets/myPhoto.jpg'
-import Contacts from './Contacts.Jsx'
+import Contacts from './Contacts.jsx'
 import MusicPlayer from './MusicPlayer'
 import LanguageSwitcher from './LanguageSwitcher'
 
