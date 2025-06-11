@@ -12,7 +12,7 @@ const JavaScriptSections = () => {
             href="https://docs.google.com/document/d/1Iascelwj5JePzpoF4e6AkhpPnOA-NBDXRO9byRaYPrc/edit?usp=sharing"
             target="_blank"
             rel="noopener noreferrer" //для защиты от атак при взаимодействии с новой вкладкой.
-            class="font-bold text-blue-900 hover:text-blue-700"
+            className="font-bold text-blue-900 hover:text-blue-700"
           >
             переглянути зміст / view contents / просмотреть содержание
           </a>
@@ -191,7 +191,7 @@ console.log(delta()); `}</code>
           <code>console.log(delta());</code> - 2. beta сохраняется между
           вызовами
         </p>
-        <hr class="mb-2" />
+        <hr className="mb-2" />
         <ul className="mb-2 list-inside list-decimal">
           <li>Внешняя функция содержит внутреннюю функцию.</li>
           <li>

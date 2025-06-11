@@ -12,7 +12,7 @@ const ReactSections = () => {
             href="https://docs.google.com/document/d/1N9eLQ9uA07g-iPwnZfLPUdYEHbg7rTX8M2kFfBfezPo/edit?usp=sharing"
             target="_blank"
             rel="noopener noreferrer" //для защиты от атак при взаимодействии с новой вкладкой.
-            class="font-bold text-blue-900 hover:text-blue-700"
+            className="font-bold text-blue-900 hover:text-blue-700"
           >
             переглянути зміст / view contents / просмотреть содержание
           </a>
@@ -1122,7 +1122,7 @@ function reducer(state = initialState, action) {
         <p>
           <strong>Подписан на состояния:</strong>
         </p>
-        <ul class="list-disc pl-5">
+        <ul className="list-disc pl-5">
           <li>
             <code>selectTitleFilter</code> → <code>filterSlice</code>
           </li>
@@ -1133,13 +1133,13 @@ function reducer(state = initialState, action) {
             <code>selectOnlyFavoriteFilter</code> → <code>filterSlice</code>
           </li>
         </ul>
-        <h3 class="text-xl font-semibold">Error</h3>
+        <h3 className="text-xl font-semibold">Error</h3>
         <p>
           <strong>
             Отправляет <code>actions</code>:
           </strong>
         </p>
-        <ul class="list-disc pl-5">
+        <ul className="list-disc pl-5">
           <li>
             <code>clearError</code> → <code>errorSlice</code>
           </li>
@@ -1147,7 +1147,7 @@ function reducer(state = initialState, action) {
         <p>
           <strong>Подписан на состояния:</strong>
         </p>
-        <ul class="mb-2 list-disc pl-5">
+        <ul className="mb-2 list-disc pl-5">
           <li>
             <code>selectErrorMessage</code> → <code>errorSlice</code>{' '}
             (отображает <code>react-toastify</code> уведомления)
@@ -1205,7 +1205,7 @@ function reducer(state = initialState, action) {
         <p className="mb-2 text-xl font-semibold">Исходное состояние</p>
         <p className="mb-2 text-2xl font-bold">↓</p>
         <p className="mb-2">
-          ( <pan className="text-l font-bold">Immer:</pan> создаётся копия
+          ( <span className="text-l font-bold">Immer:</span> создаётся копия
           состояния )
         </p>
         <p className="mb-2">( → вносятся изменения в копию )</p>
